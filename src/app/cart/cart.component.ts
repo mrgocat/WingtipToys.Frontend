@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import {MessageService} from '../services/message.service';
 import { Router } from '@angular/router';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-cart',
@@ -26,8 +27,8 @@ export class CartComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  updateCartItem(idx){
-
+  updateCartItem(form: NgForm){
+    console.dir(form);
   }
   removeCartItem(idx){
     alert(idx);

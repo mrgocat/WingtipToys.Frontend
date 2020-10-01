@@ -14,9 +14,18 @@ export class MessageService {
   constructor(private http: HttpClient, private router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
+    getProductCategory():Observable<any[]>{
+      return this.http.get<any>(this.APIURL + "api/v1/product/category");
+    }
+
   getProducts():Observable<any[]>{
     return this.http.get<any>(this.APIURL + "api/v1/product");
   }
+
+  searchProducts(name, value):Observable<any[]>{
+    return this.http.get<any>(this.APIURL + "api/v1/product?name=" + name + "&value=" + value);
+  }
+
   getProduct(productId: string):Observable<any>{
   //  alert(this.APIURL + "api/v1/product/" + productId);
     return this.http.get<any>(this.APIURL + "api/v1/product/" + productId);
