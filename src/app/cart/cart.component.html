@@ -24,6 +24,9 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <form  #postForm="ngForm">
     <table>
+    <tr  *ngIf="cartList?.length == 0">
+      <td style="color:red">No data found!</td>
+    </tr>
         <tr *ngFor="let item of cartList; index as i">
             <td>
                 <a [routerLink]="['/productdetail', item.id]">
