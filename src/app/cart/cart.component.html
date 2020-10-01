@@ -1,0 +1,67 @@
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="title">
+                <h1>Shopping Cart</h1>
+            </div>
+
+            <section class="featured">
+                <div style="margin-left: 2em">
+                    <table>
+                        <tr>
+                            <td style="width: 30%;vertical-align:top;">
+                                <div class="title">
+                                    <h1>Wingtip Toys</h1>
+                                    <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                </div>
+                                <p>
+                                    We're all about transportation toys. You can order
+                            any of our toys today. Each toy listing has detailed
+                            information to help you choose the right toy.
+                                </p>
+                            </td>
+                            <td>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form  #postForm="ngForm">
+    <table>
+        <tr *ngFor="let item of cartList; index as i">
+            <td>
+                <a [routerLink]="['/productdetail', item.id]">
+                <img border="1" height="75" src="assets/{{item.imagePath}}" width="100"></a>
+            </td>
+            <td><a [routerLink]="['/productdetail', item.productId]">{{item.productName}}</a>
+            <br>
+                <span class="ProductPrice"> <strong>Price:</strong> {{item.unitPrice}}</span>
+                <span class="ProductPrice"> <strong>Quantity:</strong> {{item.quantity}}</span>
+
+     </td><td>
+     <input type=hidden name="idx-{{i}}" value="{{i}}">
+            <input type="number" name="quantity-{{i}}"  class="cart-form-field" style="width: 40px;" value="{{item.quantity}}" ></td><td>
+            <a data-target="#idx-{{i}}" (click)="updateCartItem($i)" ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> UPDATE</a>
+            <a data-target="#idx-{{i}}" (click)="removeCartItem($i)"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg> Remove</a>
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+<!--cartId: "1b3d3b45-d5bb-4379-84a2-1eccab4300b2"
+created: "2020-09-30T20:18:53.337"
+id: "5f6f5252-d4ec-4c79-bc4b-ed89c24b00a4"
+imagePath: "boatpaper.png"
+productId: 14
+productName: "Paper Boat"
+quantity: 1
+unitPrice: 4.95-->
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix"></section>
+</div>
+

@@ -1,0 +1,55 @@
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <form action="Cars" id="ctl01" method="post" name="ctl01">
+
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <div id="hgroup"  class="title">
+                        <h1>Products</h1>
+                    </div>
+
+                    <section class="featured">
+                        <div style="margin-left: 2em">
+                            <table>
+                                <tr>
+                                    <td style="width: 30%;vertical-align:top;">
+                                        <div   class="title ">
+                                            <h1>Wingtip Toys</h1>
+                                            <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                        </div>
+                                        <p>
+                                            We're all about transportation toys. You can order
+                                    any of our toys today. Each toy listing has detailed
+                                    information to help you choose the right toy.
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let product of productList">
+                                                <td>
+                                                    <a [routerLink]="['/productdetail', product.id]">
+                                                    <img border="1" height="75" src="assets/{{product.imagePath}}" width="100"></a>
+                                                </td>
+                                                <td><a [routerLink]="['/productdetail', product.id]">{{product.productName}}</a>
+                                                <br>
+                                                    <span class="ProductPrice">
+                                                        <strong>Price:</strong>
+                                                        {{product.unitPrice}}</span>
+                                                <br>
+                                                <!--button mat-raised-button color="accent"></button-->
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <section class="content-wrapper main-content clear-fix"></section>
+        </div>
+    </form>

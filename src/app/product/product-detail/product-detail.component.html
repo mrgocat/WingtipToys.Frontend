@@ -1,0 +1,52 @@
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="title">
+                <h1>Product Detail</h1>
+            </div>
+
+            <section class="featured">
+                <div style="margin-left: 2em">
+                    <table>
+                        <tr>
+                            <td style="width: 30%;vertical-align:top;">
+                                <div class="title">
+                                    <h1>Wingtip Toys</h1>
+                                    <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                </div>
+                                <p>
+                                    We're all about transportation toys. You can order
+                            any of our toys today. Each toy listing has detailed
+                            information to help you choose the right toy.
+                                </p>
+                            </td>
+                            <td>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<mat-card class="example-card" *ngIf="product != null">
+  <mat-card-header>
+    <!--div mat-card-avatar class="example-header-image"></div-->
+    <mat-card-title>{{product.productName}}</mat-card-title>
+    <mat-card-subtitle>Category : <a (click)="goCategoryList()" >{{product.categoryName}}</a></mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/{{product.imagePath}}" alt="{{product.productName}}">
+  <mat-card-content>
+    <p>
+      {{product.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="addToCart()">Add to Cart</button>
+  </mat-card-actions>
+</mat-card>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix"></section>
+</div>
+
