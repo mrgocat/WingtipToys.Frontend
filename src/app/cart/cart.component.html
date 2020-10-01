@@ -27,21 +27,22 @@
     <tr  *ngIf="cartList?.length == 0">
       <td style="color:red">No data found!</td>
     </tr>
-        <tr *ngFor="let item of cartList; index as i">
+        <tr *ngFor="let item of cartList; index as i" #itemidv [attr.data-message-id]="item.id">
             <td>
                 <a [routerLink]="['/productdetail', item.id]">
                 <img border="1" height="75" src="assets/{{item.imagePath}}" width="100"></a>
             </td>
-            <td><a [routerLink]="['/productdetail', item.productId]">{{item.productName}}</a>
+            <td width="150px"><a [routerLink]="['/productdetail', item.productId]">{{item.productName}}</a>
             <br>
                 <span class="ProductPrice"> <strong>Price:</strong> {{item.unitPrice}}</span>
+                <br>
                 <span class="ProductPrice"> <strong>Quantity:</strong> {{item.quantity}}</span>
 
-     </td><td>
-     <input type=hidden name="idx-{{i}}" value="{{i}}">
-            <input type="number" name="quantity-{{i}}"  class="cart-form-field" style="width: 40px;" value="{{item.quantity}}" ></td><td>
-            <a data-target="#idx-{{i}}" (click)="updateCartItem($i)" ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> UPDATE</a>
-            <a data-target="#idx-{{i}}" (click)="removeCartItem($i)"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg> Remove</a>
+     </td><td align=right>
+            <input type="hidden" #itemid [attr.data-message-id]="item.id" value="{{item.id}}"/>
+            <input type="number" min="1" #qtyInput  [attr.data-message-id]="item.id"  class="cart-form-field" style="width: 40px;" value="{{item.quantity}}" ></td><td>
+            <a (click)="updateCartItem(itemid.value, qtyInput.value)" ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> UPDATE</a>
+            <a (click)="removeCartItem(itemid.value)"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg> Remove</a>
             </td>
         </tr>
 

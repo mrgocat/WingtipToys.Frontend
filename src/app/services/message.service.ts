@@ -37,7 +37,13 @@ export class MessageService {
   getCartList():Observable<any[]>{
     return this.http.get<any>(this.APIURL + "api/v1/cart/" + this.getCartId());
   }
-
+  updateCart(itemid, qty):Observable<any>{
+    const cartItem = { cartId: this.getCartId(), id: itemid, quantity: qty};
+    return this.http.patch<any>(this.APIURL + "api/v1/cart", cartItem);
+  }
+  removeCartItem(itemid):Observable<any>{
+    return this.http.delete<any>(this.APIURL + "api/v1/cart/" + this.getCartId() + "/" + itemid);
+  }
   public setCartId(cartId: string): void {
     const currentStorage = this.storage.get(this.STORAGE_KEY) || "";
     this.storage.set(this.STORAGE_KEY,cartId);

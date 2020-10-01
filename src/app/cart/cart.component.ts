@@ -27,13 +27,26 @@ export class CartComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  updateCartItem(form: NgForm){
-    console.dir(form);
+  updateCartItem(id, value){
+   // alert(id + ", " + value);
+    let qty = Number(value);
+    if(qty < 1){
+      alert("Need positive value!");
+      return;
+    }
+    this.service.updateCart(id, qty).subscribe(data => {
+
+      this.refreshCartList();
+
+    });
   }
-  removeCartItem(idx){
-    alert(idx);
+  removeCartItem(id){
+    this.service.removeCartItem(id).subscribe(data => {
+
+      this.refreshCartList();
+
+    });
+
   }
-  trackCartItem(index, item){
-    alert(index);
-  }
+
 }
