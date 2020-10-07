@@ -50,7 +50,7 @@ export class ProductDetailComponent implements OnInit {
   public addToCart(){
     if(this.product == null) return;
     this.service.addCart(this.product.id).subscribe(data => {
-      console.dir(data);
+     // console.dir(data);
       this.service.setCartId(data.cartId);
     //  this.openDialog();
       let res = confirm('Succefully added to cart. Do you want to move to shopping cart?');

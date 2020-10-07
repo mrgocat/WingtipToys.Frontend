@@ -5,7 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card"
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
@@ -20,6 +21,9 @@ import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserComponent, UserEditDialog } from './user/user.component';
+import { UserSignupComponent } from './user/user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     OrderComponent,
     CartComponent,
     ProductDetailComponent,
-
+    UserLoginComponent,
+    UserComponent,
+    UserSignupComponent,
+    UserEditDialog
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     MatToolbarModule,
     MatCardModule,
     MatListModule,
+    MatDialogModule,
     HttpClientModule,
     StorageServiceModule
   ],

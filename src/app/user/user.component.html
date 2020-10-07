@@ -1,0 +1,79 @@
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="title">
+                <h1>User Information</h1>
+            </div>
+
+            <section class="featured">
+                <div style="margin-left: 2em">
+                    <table>
+                        <tr>
+                            <td style="width: 30%;vertical-align:top;">
+                                <div class="title">
+                                    <h1>Wingtip Toys</h1>
+                                    <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                </div>
+                                <p>
+                                    We're all about transportation toys. You can order
+                            any of our toys today. Each toy listing has detailed
+                            information to help you choose the right toy.
+                                </p>
+                            </td>
+                            <td>
+                              <div  *ngIf="userInfo">
+                                  <form>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><label for="email">Email</label>
+      {{userInfo.email}}
+      </td>
+      <td ><input type="hidden" #email value="{{userInfo.email}}"/></td>
+      <td class="align-middle"><button (click)="editUser('Email', email.value)" class="btn btn-secondary btn-sm">EDIT</button></td>
+    </tr>
+    <tr>
+      <td><label for="password">Password</label>
+      ********
+      </td>
+      <td ></td>
+      <td class="align-middle"><button (click)="editUser('Password', '')" class="btn btn-secondary btn-sm">EDIT</button></td>
+    </tr>
+    <tr>
+      <td><label for="firstName">First Name</label>
+      {{userInfo.firstName}}
+      </td>
+      <td ><input type="hidden" #firstName value="{{userInfo.firstName}}"/></td>
+      <td class="align-middle"><button (click)="editUser('FirstName', firstName.value)" class="btn btn-secondary btn-sm">EDIT</button></td>
+    </tr>
+    <tr>
+      <td><label for="lastName">Last Name</label>
+      {{userInfo.lastName}}
+      </td>
+      <td ><input type="hidden" #lastName value="{{userInfo.lastName}}"/></td>
+      <td class="align-middle"><button (click)="editUser('LastName', lastName.value)" class="btn btn-secondary btn-sm">EDIT</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+                                  </form>
+<!-- dateOfBirth: null
+email: "mrgocat@ggg.com"
+firstName: "FirstName"
+id: "mrgocat@ggg.com"
+lastName: "LastNaem"
+nationality: "Kor"-->
+
+                              </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix"></section>
+</div>
+

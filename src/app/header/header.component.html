@@ -18,8 +18,12 @@
                                 src="assets/logo.jpg" style="border-style: None;"></a>
                     </p>
                 </div>
-                <div class="float-right"><a class="btn btn-sm btn-primary" routerLink="/product" routerLinkActive="mat-accent">Products</a>
+                <div class="float-right">
+                <div *ngIf="userName">Hello, {{userName}}</div>
+                <a class="btn btn-sm btn-primary" routerLink="/product" routerLinkActive="mat-accent">Products</a>
                &nbsp; <a  class="btn btn-sm btn-primary" routerLink="/cart" routerLinkActive="mat-accent">Cart</a>
+               &nbsp; <a  class="btn btn-sm btn-primary" routerLink="/user/login" routerLinkActive="mat-accent">Login</a>
+               &nbsp; <a  *ngIf="userName" class="btn btn-sm btn-primary" routerLink="/user" routerLinkActive="mat-accent">User Info</a>
                 </div>
             </div>
         </header>

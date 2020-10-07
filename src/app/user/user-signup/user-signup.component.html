@@ -1,0 +1,62 @@
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="title">
+                <h1>Sign-Up</h1>
+            </div>
+
+            <section class="featured">
+                <div style="margin-left: 2em">
+                    <table>
+                        <tr>
+                            <td style="width: 30%;vertical-align:top;">
+                                <div class="title">
+                                    <h1>Wingtip Toys</h1>
+                                    <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                </div>
+                                <p>
+                                    We're all about transportation toys. You can order
+                            any of our toys today. Each toy listing has detailed
+                            information to help you choose the right toy.
+                                </p>
+                            </td>
+                            <td>
+                              <form (submit)="onAddUser(userForm)" #userForm="ngForm">
+                              <div class="form-group">
+                                <label for="email">Email</label>
+                                <input matIput type="email" class="form-control" id="email" name="email"  required
+                                 [(ngModel)]="user.email" aria-describedby="emailHelp" #email="ngModel"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                                <div [hidden]="email.valid" class="alert alert-danger">Please input valid email address.</div>
+                              </div>
+                              <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                [(ngModel)]="user.password" required  #password="ngModel"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                <div [hidden]="password.valid" class="alert alert-danger">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+                              </div>
+                              <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"  [(ngModel)]="user.firstName"
+                                 #firstName="ngModel" required  minlength="2">
+                                <div [hidden]="firstName.valid" class="alert alert-danger">First Name is required</div>
+                              </div>
+                              <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName"  [(ngModel)]="user.lastName"
+                                 #lastName="ngModel" required  minlength="2">
+                                <div [hidden]="lastName.valid" class="alert alert-danger">Last Name is required</div>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix"></section>
+</div>
+

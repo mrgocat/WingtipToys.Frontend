@@ -1,0 +1,41 @@
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="title">
+                <h1>Sign-In</h1>
+            </div>
+
+            <section class="featured">
+                <div style="margin-left: 2em">
+                    <table>
+                        <tr>
+                            <td style="width: 30%;vertical-align:top;">
+                                <div class="title">
+                                    <h1>Wingtip Toys</h1>
+                                    <h2>Wingtip Toys can help you find the perfect gift</h2>
+                                </div>
+                                <p>
+                                    We're all about transportation toys. You can order
+                            any of our toys today. Each toy listing has detailed
+                            information to help you choose the right toy.
+                                </p>
+                            </td>
+                            <td>
+                            <label for="userId">User ID:</label>
+                            <input type="text" #userid name="userId" /><br>
+                            <label for="password">Passwrod:</label>
+                            <input type="password" #password name="password" />
+                            <br><br>
+                            <a  class="btn btn-sm btn-primary" (click)="loginRequest(userid.value, password.value)" > LOGIN </a>
+                           &nbsp; <a  class="btn btn-sm btn-primary"  routerLink="/user/signup" routerLinkActive="mat-accent" > SIGNUP </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix"></section>
+</div>
+

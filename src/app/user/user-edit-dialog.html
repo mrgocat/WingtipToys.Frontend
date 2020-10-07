@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Change Your {{data.title}}</h1>
+<div mat-dialog-content>
+  <p>If you want to change the {{data.title}} associated with your account, you may do so below. Be sure to click the Save Change</p>
+  <mat-form-field *ngIf="data.key === 'Password'">
+    <mat-label>Old {{data.title}}</mat-label>
+    <input type="password" matInput [(ngModel)]="data.oldValue">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>New {{data.title}}</mat-label>
+    <input type="{{(data.key === 'Password') ? 'password' : 'text'}}"
+      matInput [(ngModel)]="data.value" required  #valueX="ngModel" pattern="{{data.patternStr}}">
+  </mat-form-field>
+  <div [hidden]="valueX.valid" class="alert alert-danger">{{data.validationMsg}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close Me</button>
+  <!--button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save Change</button-->
+  <button mat-button (click)="onSubmit(valueX)">Save Change</button>
+</div>
